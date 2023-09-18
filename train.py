@@ -33,11 +33,12 @@ torch.cuda.manual_seed_all(seed)
 np.random.seed(seed)
 torch.backends.cudnn.benchmark = True
 torch.backends.cudnn.deterministic = True
-
 import pandas as pd
 import datasets
 import json
-import random
+# import random
+from rouge import Rouge
+rouge_score = Rouge()
 train_data = json.load(open('train_qg_attr_0913.json','r',encoding='utf-8'))
 dev_data = json.load(open('dev_qg_attr_0913.json','r',encoding='utf-8'))
 train_data =[d for d in train_data if '#' in d['target']]
