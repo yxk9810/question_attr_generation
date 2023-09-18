@@ -55,7 +55,7 @@ import os
 os.environ["WANDB_DISABLED"] = "true"
 checkpoint=args.model_name
 from transformers import AutoTokenizer,T5Tokenizer
-from modeling_cpt import CPTForConditionalGeneration
+# from modeling_cpt import CPTForConditionalGeneration
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 def preprocess_function(example):
   model_inputs = tokenizer(example['source']+'[SEP]'+example['attr'], truncation=True, padding="max_length", max_length=512)
