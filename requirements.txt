@@ -1,0 +1,7 @@
+transformers
+pandas
+datasets 
+SentencePiece
+rouge_score
+rouge
+accelerate
