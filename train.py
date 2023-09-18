@@ -191,7 +191,7 @@ def save_preds(preds,test_data):
   dataset = []
   for pred,d in zip(preds,test_data):
     pred_attr = pred.replace(' ','') #+'\t'+d['target'])
-    if  pred_attr and d['entity'].strip()!=''
+    if  pred_attr and d['entity'].strip()!='':
       entity = d['entity'].strip()
       for q in pred_attr.split(';'):
         sub_q = entity+'的'+q+'是什么?'
