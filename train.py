@@ -128,7 +128,7 @@ folder='./bart_seq2seq_task9'
 tokenizer = AutoTokenizer.from_pretrained(folder)
 from transformers import AutoModelForSeq2SeqLM, Seq2SeqTrainingArguments, Seq2SeqTrainer
 
-model = AutoModelForSeq2SeqLM.from_pretrained(folder)
+model = AutoModelForSeq2SeqLM.from_pretrained(folder) if 'cpt' not in checkpoint else CPTForConditionalGeneration.from_pretrained(folder)
 
 import torch
 device = torch.device('cuda')
