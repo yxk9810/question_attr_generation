@@ -56,7 +56,7 @@ import os
 os.environ["WANDB_DISABLED"] = "true"
 checkpoint=args.model_name
 from transformers import AutoTokenizer,T5Tokenizer
-# from modeling_cpt import CPTForConditionalGeneration
+from modeling_cpt import CPTForConditionalGeneration
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 def preprocess_function(example):
   model_inputs = tokenizer(example['source']+'[SEP]'+example['attr'], truncation=True, padding="max_length", max_length=512)
@@ -73,7 +73,7 @@ data_collator = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=checkpoint)
 from transformers import AutoModelForSeq2SeqLM, Seq2SeqTrainingArguments, Seq2SeqTrainer
 
 def get_model():
-    model = AutoModelForSeq2SeqLM.from_pretrained(checkpoint)
+    model = AutoModelForSeq2SeqLM.from_pretrained(checkpoint) if 'cpt' not in checkpoint else CPTForConditionalGeneration.from_pretrained(checkpoint)
     return model
 import numpy as np
 def compute_metrics(eval_pred):
