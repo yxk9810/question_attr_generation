@@ -14,6 +14,7 @@ parser.add_argument('--batch_size',type=int,default=2,
 parser.add_argument('--epochs',type=int,default=3, 
                     help='input seed')
 parser.add_argument("--learning_rate", default=1e-5, type=float)
+parser.add_argument("--eval_result_filename", type=str,help='请输入存储文件名')
 parser.add_argument("--save_filename", type=str,help='请输入存储文件名')
 
 args = parser.parse_args()
@@ -179,6 +180,7 @@ for pred,d in zip(preds,dev_data):
           right+=1
 p = float(right)/found
 r = float(right)/total
+json.dump(preds,open(args.eval_result_filename,'r',encoding='utf-8'),ensure_ascii=False)
 print('p='+str(p)+'\t'+str(r)+'\t'+str(2*p*r/(p+r)))
 
 multi_queries = set(json.load(open('test_multi_questions.json','r',encoding='utf-8')))
