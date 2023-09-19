@@ -198,7 +198,7 @@ def save_preds(preds,test_data):
     if  pred_attr and d['entity'].strip()!='':
       entity = d['entity'].strip()
       for q in pred_attr.split(';'):
-        if q.strip() not in d['attr'].replace(' ',''):continue 
+        # if q.strip() not in d['attr'].replace(' ',''):continue 
         sub_q = entity+'的'+q+'是什么?'
         dataset.append({'id':d['id'],'question':sub_q})
   return dataset
