@@ -180,7 +180,7 @@ for pred,d in zip(preds,dev_data):
           right+=1
 p = float(right)/found
 r = float(right)/total
-json.dump(preds,open(args.eval_result_filename,'r',encoding='utf-8'),ensure_ascii=False)
+json.dump({'preds':preds,'p':p,'r':r,'f1':2*p*r/(p+r)},open(args.eval_result_filename,'r',encoding='utf-8'),ensure_ascii=False)
 print('p='+str(p)+'\t'+str(r)+'\t'+str(2*p*r/(p+r)))
 
 multi_queries = set(json.load(open('test_multi_questions.json','r',encoding='utf-8')))
