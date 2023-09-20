@@ -49,8 +49,8 @@ train_data =[d for d in train_data if '#' in d['target']]
 dev_data =[d for d in dev_data if '#' in d['target']]
 
 
-print('train size %d'.format(len(train_data)))
-print('dev size %d'.format(len(dev_data)))
+print("train size {}".format(len(train_data)))
+print('dev size {}'.format(len(dev_data)))
 
 train_dataset =datasets.Dataset.from_pandas(pd.DataFrame(train_data))
 dev_dataset = datasets.Dataset.from_pandas(pd.DataFrame(dev_data))
