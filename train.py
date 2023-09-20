@@ -47,8 +47,8 @@ train_data = json.load(open('train_qg_attr_0913.json','r',encoding='utf-8'))
 dev_data = json.load(open('dev_qg_attr_0913.json','r',encoding='utf-8'))
 aug_data = json.load(open('aug_qg_attr_data.json','r',encoding='utf-8'))
 
-if args.with_aug:
-  train_data+=aug_data  
+# if args.with_aug:
+#   train_data+=aug_data  
 train_data =[d for d in train_data if '#' in d['target']]
 dev_data =[d for d in dev_data if '#' in d['target']]
 
