@@ -9,6 +9,9 @@ parser = argparse.ArgumentParser(description='命令行中传入一个数字')
 parser.add_argument('--model_name', type=str, help='训练后的模型文件')
 parser.add_argument('--seed',type=int,default=42, 
                     help='input seed')
+
+parser.add_argument('--with_aug',type=bool,default=False, 
+                    help='input seed')
 parser.add_argument('--batch_size',type=int,default=2, 
                     help='input seed')
 parser.add_argument('--epochs',type=int,default=3, 
