@@ -45,7 +45,7 @@ from rouge import Rouge
 rouge_score = Rouge()
 train_data = json.load(open('train_qg_attr_0913.json','r',encoding='utf-8'))
 dev_data = json.load(open('dev_qg_attr_0913.json','r',encoding='utf-8'))
-aug_data = json.load(open('aug_qg_attr.json','r',encoding='utf-8'))
+aug_data = json.load(open('aug_qg_attr_data.json','r',encoding='utf-8'))
 
 if args.with_aug:
   train_data+=aug_data  
