@@ -194,7 +194,7 @@ multi_queries = set(json.load(open('test_multi_questions.json','r',encoding='utf
 test_data = [json.loads(line.strip()) for line in open('test_data_qg_attr_0914.jsonl','r',encoding='utf-8').readlines() if json.loads(line.strip())['source'] in multi_queries]
 test_preds = inference_with_file(test_data)
 id_to_entity = {}
-with open('test_data_qg_attr_0914.jsonl','r',encoding='utf-8') as lines:
+with open('test_data_qg_attr_0921.jsonl','r',encoding='utf-8') as lines:
   for line in lines:
     data = json.loads(line.strip())
     id_to_entity[data['id']] = data['entity']
