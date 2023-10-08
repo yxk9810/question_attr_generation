@@ -191,7 +191,7 @@ json.dump({'preds':preds,'p':p,'r':r,'f1':2*p*r/(p+r)},open(args.eval_result_fil
 print('p='+str(p)+'\t'+str(r)+'\t'+str(2*p*r/(p+r)))
 
 multi_queries = set(json.load(open('test_multi_questions.json','r',encoding='utf-8')))
-test_data = [json.loads(line.strip()) for line in open('test_data_qg_attr_0921.jsonl','r',encoding='utf-8').readlines() if json.loads(line.strip())['source'] in multi_queries]
+test_data = [json.loads(line.strip()) for line in open('test_data_qg_attr_0928.jsonl','r',encoding='utf-8').readlines() if json.loads(line.strip())['source'] in multi_queries]
 test_preds = inference_with_file(test_data)
 # id_to_entity = {}
 # with open('test_data_qg_attr_0921.jsonl','r',encoding='utf-8') as lines:
